@@ -5,55 +5,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#34495e">
 
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/etPasswordLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:passwordToggleEnabled="true">
-</com.google.android.material.textfield.TextInputLayout>
 
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:src="@drawable/logo"
-        android:layout_gravity="center"/>
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:id="@+id/topText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Hello there, Welcom Back"
+        android:textColor="#f1c40f "
         android:textSize="20sp"
-        app:fontFamily="@font/bungee"
-        android:layout_gravity="center"/>
+        app:fontFamily="casual" />
 
 
-    <EditText
-        android:id="@+id/username_login"
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
-        android:inputType="text"/>
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginHorizontal="20dp"
+        android:textColorHint="#f1c40f"
+        android:layout_marginTop="20dp"
+        app:boxStrokeColor="#f1c40f">
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/username_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:inputType="text"
+            android:outlineSpotShadowColor="#f1c40f"
+            android:textColorHint="#f1c40f"
+            android:textColor="#f1c40f"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 
 
 
 
-
-
-
-
-    <EditText
-        android:id="@+id/password_login"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginHorizontal="20dp"
+        android:textColorHint="#f1c40f"
+        android:layout_marginTop="20dp"
+        app:boxStrokeColor="#f1c40f">
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/password_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColorHint="#f1c40f"
+            android:textColor="#f1c40f"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
 
 
     <RadioGroup
@@ -61,17 +91,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp">
         <RadioButton android:id="@+id/Service_Radio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Service Provider"
+            android:textColor="#f1c40f"
+            android:shadowColor="#f1c40f "
             tools:ignore="OnClick" />
         <RadioButton android:id="@+id/Customer_Radio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Customer"
-
+            android:textColor="#f1c40f"
             tools:ignore="OnClick" />
     </RadioGroup>
 
@@ -80,21 +114,23 @@
         android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="#4C4B4B"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/new_button"
         android:onClick="login"
         android:text="Login"
-        android:textColor="#F1F0F0" />
+        android:textColor="#34495e"
+        android:layout_marginHorizontal="20dp"/>
 
     <Button
         android:id="@+id/forget_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="#4C4B4B"
+        android:background="@drawable/new_button"
         android:onClick="forget_pass"
         android:text="Forget Password?"
-        android:textColor="#F1F0F0" />
+        android:textColor="#34495e"
+        android:layout_marginHorizontal="20dp"/>
 
 
     <Button
@@ -102,14 +138,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="#4C4B4B"
+        android:background="@drawable/new_button"
         android:onClick="sign_up"
         android:text="New User? SIGNUP"
-        android:textColor="#ffff" />
-
-
-
-
+        android:textColor="#34495e"
+        android:layout_marginHorizontal="20dp"/>
 
 
 
