@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Barber Booking app</string>
+    <string name="invalid_name">Please Enter Valid Name</string>
+    <string name="invalid">Invalid</string>
+    <string name="invalid_pass">please Enter Valid Password</string>
+</resources>
