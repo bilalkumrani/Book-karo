@@ -9,7 +9,6 @@
     android:background="#34495e">
 
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
@@ -18,17 +17,17 @@
         android:layout_gravity="left"
         android:layout_marginLeft="10dp"/>
 
+
     <TextView
-        android:id="@+id/topText"
-        android:layout_width="wrap_content"
+        android:id="@+id/welcomText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Hello there, Welcom Back"
-        android:textColor="#f1c40f "
-        android:textSize="20sp"
-        app:fontFamily="casual" />
-
-
+        android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/bungee"
+        android:text="Hello there, Welcome Back"
+        android:textColor="#f1b50f"
+        android:textSize="30dp"
+        app:fontFamily="@font/bungee" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -119,7 +118,8 @@
         android:onClick="login"
         android:text="Login"
         android:textColor="#34495e"
-        android:layout_marginHorizontal="20dp"/>
+        android:layout_marginHorizontal="20dp"
+/>
 
     <Button
         android:id="@+id/forget_password"
