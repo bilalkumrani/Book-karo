@@ -74,17 +74,19 @@
         android:layout_marginHorizontal="20dp"
         android:textColorHint="#f1c40f"
         app:boxStrokeColor="#f1c40f">
+
         <com.google.android.material.textfield.TextInputEditText
 
             android:id="@+id/phone_service"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="11"
-            android:inputType="phone"
             android:layout_gravity="center"
-            android:hint="Phone"
             android:layout_marginTop="15dp"
-            android:textColor="#f1c40f"/>
+            android:ems="11"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:text="03053206339"
+            android:textColor="#f1c40f" />
     </com.google.android.material.textfield.TextInputLayout>
 
 

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "634228048407",
+    "firebase_url": "https://book-karo-768ab.firebaseio.com",
+    "project_id": "book-karo-768ab",
+    "storage_bucket": "book-karo-768ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634228048407:android:e135ebfe0d3a4a4f149252",
+        "android_client_info": {
+          "package_name": "com.example.barberbookingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634228048407-9rfbs45nl87dr9afoqaln53avfqc5jc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQY4oM-TXnPo49vO5w7pXCPPPA9h3NNSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634228048407-9rfbs45nl87dr9afoqaln53avfqc5jc1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

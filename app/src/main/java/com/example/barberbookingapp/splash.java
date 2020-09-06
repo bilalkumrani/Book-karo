@@ -26,7 +26,7 @@ public class splash extends AppCompatActivity {
                     ae.printStackTrace();
                 } finally {
 
-                    Intent it = new Intent(splash.this, MainActivity.class);
+                    Intent it = new Intent(splash.this, LoginActivity.class);
                     startActivity(it);
                 }
 
