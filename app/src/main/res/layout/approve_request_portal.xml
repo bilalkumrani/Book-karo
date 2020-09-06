@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#34495e">
+    android:background="#34495e"
+    tools:context=".update_customer_data">
+
+    >
+
+
 
 
 
@@ -31,17 +36,7 @@
         android:layout_marginHorizontal="20dp"
         android:textColorHint="#f1c40f"
         android:layout_marginTop="20dp"
-        app:boxStrokeColor="#f1c40f">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Name_service"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name"
-            android:textColorHint="#f1c40f"
-            android:textColor="#f1c40f"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:boxStrokeColor="#f1c40f"/>
 
 
 
@@ -53,15 +48,16 @@
         android:layout_marginHorizontal="20dp"
         android:textColorHint="#f1c40f"
         app:boxStrokeColor="#f1c40f">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="UserName"
-            android:textColorHint="#f1c40f"
-            android:layout_marginTop="15dp"
             android:layout_gravity="center"
-            android:textColor="#f1c40f"/>
+            android:layout_marginTop="15dp"
+            android:hint="Name"
+            android:textColor="#f1c40f"
+            android:textColorHint="#f1c40f" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -83,9 +79,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:ems="11"
-            android:hint="Phone"
+            android:hint="Request for"
             android:inputType="phone"
-            android:text="03053206339"
             android:textColor="#f1c40f" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,18 +93,19 @@
         android:layout_marginHorizontal="20dp"
         android:textColorHint="#f1c40f"
         app:boxStrokeColor="#f1c40f">
+
         <com.google.android.material.textfield.TextInputEditText
 
             android:id="@+id/mobile"
-            android:hint="Password"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:textColorHint="#f1c40f"
+            android:hint="Mobile"
+            android:inputType="text"
             android:textColor="#f1c40f"
-            app:boxStrokeColor="#f1c40f"/>
+            android:textColorHint="#f1c40f"
+            app:boxStrokeColor="#f1c40f" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -122,47 +118,33 @@
         android:layout_marginHorizontal="20dp"
         android:textColorHint="#f1c40f"
         app:boxStrokeColor="#f1c40f">
+
         <com.google.android.material.textfield.TextInputEditText
 
 
             android:id="@+id/RequestDate"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:textColorHint="#f1c40f"
-            android:textColor="#f1c40f"/>
+            android:hint="RequestDate"
+            android:inputType="text"
+            android:textColor="#f1c40f"
+            android:textColorHint="#f1c40f" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
 
 
     <Button
         android:id="@+id/confirmRequest"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@drawable/new_button"
-        android:onClick="register_customer"
-        android:text="Register Customer"
-        android:textColor="#34495e"
-        android:layout_gravity="center"/>
-
-    <Button
-        android:id="@+id/register_button__service"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/new_button"
-        android:onClick="register_service"
-        android:text="Register Service Provider"
-        android:textColor="#34495e"
-        android:layout_gravity="center"/>
+        android:onClick="Confirm_Request"
+        android:text="Confirm_Request"
+        android:textColor="#34495e" />
 
 
 </LinearLayout>

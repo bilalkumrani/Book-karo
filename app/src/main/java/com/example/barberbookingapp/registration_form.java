@@ -3,18 +3,16 @@ package com.example.barberbookingapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.database.Cursor;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -65,8 +63,8 @@ public class registration_form extends AppCompatActivity {
        }
 
        //userName Validation
-        input_username = (EditText)findViewById(R.id.username_service);
-       awesomeValidation.addValidation(this, R.id.username_service, RegexTemplate.NOT_EMPTY, R.string.invalid_name);
+        input_username = (EditText)findViewById(R.id.Name);
+       awesomeValidation.addValidation(this, R.id.Name, RegexTemplate.NOT_EMPTY, R.string.invalid_name);
        if(awesomeValidation.validate())
        {
            userName = input_username.getText().toString().trim();
@@ -91,12 +89,12 @@ public class registration_form extends AppCompatActivity {
 
 
         //password validation
-        input_pass1 = (EditText)findViewById(R.id.password_service);
-        awesomeValidation.addValidation(this, R.id.password_service, RegexTemplate.NOT_EMPTY, R.string.invalid_pass);
+        input_pass1 = (EditText)findViewById(R.id.mobile);
+        awesomeValidation.addValidation(this, R.id.mobile, RegexTemplate.NOT_EMPTY, R.string.invalid_pass);
 
         if (awesomeValidation.validate())
        {
-           input_pass2 = (EditText)findViewById(R.id.confirm_password_service);
+           input_pass2 = (EditText)findViewById(R.id.RequestDate);
            pass1 = input_pass1.getText().toString().trim();
            pass2 = input_pass2.getText().toString().trim();
            if (pass1.contains(" "))
@@ -126,8 +124,8 @@ public class registration_form extends AppCompatActivity {
        }
 
        //phone validation
-        input_phone = (EditText)findViewById(R.id.phone_service);
-        awesomeValidation.addValidation(this, R.id.phone_service, "^[+]?[0-9]{10,13}$", R.string.invalid);
+        input_phone = (EditText)findViewById(R.id.Request);
+        awesomeValidation.addValidation(this, R.id.Request, "^[+]?[0-9]{10,13}$", R.string.invalid);
         ;
         if(awesomeValidation.validate())
         {
@@ -154,9 +152,12 @@ public class registration_form extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot)
                 {
-                  if( UploadData(reference,dataSnapshot))
+                  if( UploadCustomerData(reference,dataSnapshot))
                   {
-                      localStorage.InsertAccount(userName,pass1,"Customer");
+                      //localStorage.InsertAccount(userName,pass1,"Customer");
+
+                      //TODO:Get personal info
+
                       lodingDialogue.dismiss();
                       //TODO: Open cutomer dash board
                   }
@@ -199,8 +200,8 @@ public class registration_form extends AppCompatActivity {
         }
 
         //userName Validation
-        input_username = (EditText)findViewById(R.id.username_service);
-        awesomeValidation.addValidation(this, R.id.username_service, RegexTemplate.NOT_EMPTY, R.string.invalid_name);
+        input_username = (EditText)findViewById(R.id.Name);
+        awesomeValidation.addValidation(this, R.id.Name, RegexTemplate.NOT_EMPTY, R.string.invalid_name);
         if(awesomeValidation.validate())
         {
             userName = input_username.getText().toString().trim();
@@ -226,12 +227,12 @@ public class registration_form extends AppCompatActivity {
 
 
         //password validation
-        input_pass1 = (EditText)findViewById(R.id.password_service);
-        awesomeValidation.addValidation(this, R.id.password_service, RegexTemplate.NOT_EMPTY, R.string.invalid_name);
+        input_pass1 = (EditText)findViewById(R.id.mobile);
+        awesomeValidation.addValidation(this, R.id.mobile, RegexTemplate.NOT_EMPTY, R.string.invalid_name);
 
         if (awesomeValidation.validate())
         {
-            input_pass2 = (EditText)findViewById(R.id.confirm_password_service);
+            input_pass2 = (EditText)findViewById(R.id.RequestDate);
             pass1 = input_pass1.getText().toString().trim();
             pass2 = input_pass2.getText().toString().trim();
             if (pass1.contains(" "))
@@ -261,8 +262,8 @@ public class registration_form extends AppCompatActivity {
         }
 
         //phone validation
-        input_phone = (EditText)findViewById(R.id.phone_service);
-        awesomeValidation.addValidation(this, R.id.phone_service, "^[+]?[0-9]{10,13}$", R.string.invalid);
+        input_phone = (EditText)findViewById(R.id.Request);
+        awesomeValidation.addValidation(this, R.id.Request, "^[+]?[0-9]{10,13}$", R.string.invalid);
         ;
         if(awesomeValidation.validate())
         {
@@ -289,7 +290,7 @@ public class registration_form extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot)
                 {
 
-                    if( UploadData(reference,dataSnapshot))
+                    if( UploadServiceProviderData(reference,dataSnapshot))
                     {
 /*
                         localStorage.deleteAll(userName);
@@ -310,8 +311,14 @@ public class registration_form extends AppCompatActivity {
                             Log.e("Here is ",user+" : "+pass);
                         }
                         */
+                        //TODO:Get personal info
+                        splash.tempData.setUserName(userName);
+                        splash.tempData.setPassword(pass1);
+                        splash.tempData.setServiceProviderName(name);
+                        splash.tempData.setCustomerName(name);
+                        Intent openServiceProviderActivity = new Intent(registration_form.this,ServiceProviderMainActivity.class);
+                        startActivity(openServiceProviderActivity);
 
-                        //TODO: Open customer dash board
                     }
                     else
                     {
@@ -332,7 +339,7 @@ public class registration_form extends AppCompatActivity {
 
     }
 
-    public boolean UploadData(DatabaseReference reference,DataSnapshot dataSnapshot)
+    public boolean UploadCustomerData(DatabaseReference reference,DataSnapshot dataSnapshot)
     {
         try {
 
@@ -344,6 +351,49 @@ public class registration_form extends AppCompatActivity {
                 {
                     counter = Integer.parseInt(dsp.child("Index").getValue().toString());
                 }
+                //TODO:Set node no
+                splash.tempData.setNodeNo(""+counter);
+
+                counter++;
+                reference.child((""+(counter))).child("PersonalInfo").child("Name").setValue(name);
+                reference.child((""+(counter))).child("PersonalInfo").child("UserName").setValue(userName);
+                reference.child((""+(counter))).child("PersonalInfo").child("Phone").setValue(phone);
+                reference.child((""+(counter))).child("PersonalInfo").child("Password").setValue(pass1);
+                reference.child((""+(counter))).child("Requests").child("0").child("RequestIndex").setValue(("0"));
+
+
+                reference.child((""+(counter))).child("Index").setValue((counter)+"");
+
+                Toast.makeText(getApplicationContext(),"Registered :"+counter,Toast.LENGTH_LONG).show();
+                return  true;
+            }
+            else
+            {
+                return  false;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            return  false;
+        }
+    }
+
+    public boolean UploadServiceProviderData(DatabaseReference reference,DataSnapshot dataSnapshot)
+    {
+        try {
+
+            if(Validate(reference,dataSnapshot))
+            {
+
+                int counter=0;
+                for (DataSnapshot dsp : dataSnapshot.getChildren())
+                {
+                    counter = Integer.parseInt(dsp.child("Index").getValue().toString());
+                }
+
+                //TODO: Set node no:
+                splash.tempData.setNodeNo(""+counter);
 
                 counter++;
                 reference.child((""+(counter))).child("PersonalInfo").child("Name").setValue(name);

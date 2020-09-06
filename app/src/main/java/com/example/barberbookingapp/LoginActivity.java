@@ -118,9 +118,13 @@ public class LoginActivity extends Activity
                     if( SinIn(reference,dataSnapshot))
                     {
                         Log.e("We are"," done sining in");
-                        //TODO: Open customer dash board
-                       lodingDialogue.dismiss();
-                        Toast.makeText(getApplicationContext(),"Welcome",Toast.LENGTH_LONG).show();
+
+                       splash.tempData.setUserName(username);
+                       splash.tempData.setPassword(pass);
+
+                        lodingDialogue.dismiss();
+                       Intent openServiceProviderActivity = new Intent(LoginActivity.this,ServiceProviderMainActivity.class);
+                       startActivity(openServiceProviderActivity);
 
                     }
                     else
@@ -250,14 +254,20 @@ public class LoginActivity extends Activity
     {
         try {
 
+            int count=0;
             for (DataSnapshot dsp : dataSnapshot.getChildren())
             {
 
 
                 if(username.equals(dsp.child("PersonalInfo").child("UserName").getValue().toString())&&pass.equals(dsp.child("PersonalInfo").child("Password").getValue().toString()))
                 {
+                    //TODO: Get personal info
+                    splash.tempData.setServiceProviderName(dsp.child("PersonalInfo").child("Name").getValue().toString());
+                    splash.tempData.setCustomerName(dsp.child("PersonalInfo").child("Name").getValue().toString());
+                    splash.tempData.setNodeNo(""+count);
                     return true;
                 }
+                count++;
             }
 
             return  false;
