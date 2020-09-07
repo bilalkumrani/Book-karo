@@ -316,6 +316,7 @@ public class registration_form extends AppCompatActivity {
                         splash.tempData.setPassword(pass1);
                         splash.tempData.setServiceProviderName(name);
                         splash.tempData.setCustomerName(name);
+                        splash.tempData.setServiceProviderLocation("Sukkur");
                         Intent openServiceProviderActivity = new Intent(registration_form.this,ServiceProviderMainActivity.class);
                         startActivity(openServiceProviderActivity);
 
@@ -351,7 +352,6 @@ public class registration_form extends AppCompatActivity {
                 {
                     counter = Integer.parseInt(dsp.child("Index").getValue().toString());
                 }
-                //TODO:Set node no
                 splash.tempData.setNodeNo(""+counter);
 
                 counter++;
@@ -359,6 +359,8 @@ public class registration_form extends AppCompatActivity {
                 reference.child((""+(counter))).child("PersonalInfo").child("UserName").setValue(userName);
                 reference.child((""+(counter))).child("PersonalInfo").child("Phone").setValue(phone);
                 reference.child((""+(counter))).child("PersonalInfo").child("Password").setValue(pass1);
+                reference.child((""+(counter))).child("PersonalInfo").child("MyLocation").setValue("Sukkur");
+
                 reference.child((""+(counter))).child("Requests").child("0").child("RequestIndex").setValue(("0"));
 
 
@@ -396,14 +398,53 @@ public class registration_form extends AppCompatActivity {
                 splash.tempData.setNodeNo(""+counter);
 
                 counter++;
+
+                //TODO:Personal data
+
+                reference.child((""+(counter))).child("Index").setValue((counter)+"");
+
+
                 reference.child((""+(counter))).child("PersonalInfo").child("Name").setValue(name);
                 reference.child((""+(counter))).child("PersonalInfo").child("UserName").setValue(userName);
                 reference.child((""+(counter))).child("PersonalInfo").child("Phone").setValue(phone);
                 reference.child((""+(counter))).child("PersonalInfo").child("Password").setValue(pass1);
+                reference.child((""+(counter))).child("PersonalInfo").child("MyLocation").setValue("Sukkur");
+                reference.child((""+(counter))).child("PersonalInfo").child("AvgRating").setValue("New");
+
+                //TODO: Default requests
+
                 reference.child((""+(counter))).child("Requests").child("0").child("RequestIndex").setValue(("0"));
+                reference.child((""+(counter))).child("Requests").child("0").child("AppointmentTimeDate").setValue(("12/12/2020"));
+                reference.child((""+(counter))).child("Requests").child("0").child("Phone").setValue(("0000000000"));
+                reference.child((""+(counter))).child("Requests").child("0").child("Rating").setValue(("+"));
+                reference.child((""+(counter))).child("Requests").child("0").child("RequestTimeDate").setValue(("12/12/2020"));
+                reference.child((""+(counter))).child("Requests").child("0").child("ServiceChoosed").setValue(("Hair"));
+                reference.child((""+(counter))).child("Requests").child("0").child("Status").setValue(("Default"));
 
 
-                reference.child((""+(counter))).child("Index").setValue((counter)+"");
+                //TODO:Service 1
+
+                reference.child((""+(counter))).child("Services").child("0").child("ServiceName").setValue("Hair");
+                reference.child((""+(counter))).child("Services").child("0").child("ServiceStatus").setValue("NO");
+                reference.child((""+(counter))).child("Services").child("0").child("Index").setValue("0");
+
+
+                //TODO:Service 2
+
+                reference.child((""+(counter))).child("Services").child("1").child("ServiceName").setValue("Beard");
+                reference.child((""+(counter))).child("Services").child("1").child("ServiceStatus").setValue("NO");
+                reference.child((""+(counter))).child("Services").child("1").child("Index").setValue("1");
+
+
+                //TODO:Service 3
+
+                reference.child((""+(counter))).child("Services").child("2").child("ServiceName").setValue("Facial");
+                reference.child((""+(counter))).child("Services").child("2").child("ServiceStatus").setValue("NO");
+                reference.child((""+(counter))).child("Services").child("2").child("Index").setValue("2");
+
+
+
+
 
                 Toast.makeText(getApplicationContext(),"Registered :"+counter,Toast.LENGTH_LONG).show();
                 return  true;

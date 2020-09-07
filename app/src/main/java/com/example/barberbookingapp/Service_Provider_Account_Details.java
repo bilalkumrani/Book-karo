@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -51,6 +52,18 @@ public class Service_Provider_Account_Details extends AppCompatActivity {
         totalServed=0;
 
         loadData();
+    }
+    public  void myServices(View view)
+    {
+        Intent intent =  new Intent(Service_Provider_Account_Details.this,MyServicesActivity.class);
+        startActivity(intent);
+
+    }
+    public void updateLocation(View view)
+    {
+        Intent intent = new Intent(Service_Provider_Account_Details.this,UpdateServiceProviderLocation.class);
+        startActivity(intent);
+
     }
     public int avgRatingFormula(int positive,int negetive, int totalServed)
     {

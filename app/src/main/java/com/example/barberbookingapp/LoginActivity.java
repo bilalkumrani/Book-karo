@@ -115,14 +115,14 @@ public class LoginActivity extends Activity
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot)
                 {
 
-                    if( SinIn(reference,dataSnapshot))
+                    if( SinInServiceProvider(reference,dataSnapshot))
                     {
                         Log.e("We are"," done sining in");
 
                        splash.tempData.setUserName(username);
                        splash.tempData.setPassword(pass);
 
-                        lodingDialogue.dismiss();
+                       lodingDialogue.dismiss();
                        Intent openServiceProviderActivity = new Intent(LoginActivity.this,ServiceProviderMainActivity.class);
                        startActivity(openServiceProviderActivity);
 
@@ -200,11 +200,18 @@ public class LoginActivity extends Activity
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot)
                 {
 
-                    if( SinIn(reference,dataSnapshot))
+                    if( SinInCustomer(reference,dataSnapshot))
                     {
-                        Log.e("We are"," done sining in");
+                        //Log.e("We are"," done sining in");
                         //TODO: Open customer dash board
-                        Toast.makeText(getApplicationContext(),"Welcome",Toast.LENGTH_LONG).show();
+                        splash.tempData.setUserName(username);
+                        splash.tempData.setPassword(pass);
+
+                        lodingDialogue.dismiss();
+                        Intent openServiceProviderActivity = new Intent(LoginActivity.this,CustomerDashBorad_MainActivity.class);
+                        startActivity(openServiceProviderActivity);
+
+
                         lodingDialogue.dismiss();
                     }
                     else
@@ -250,9 +257,10 @@ public class LoginActivity extends Activity
         startActivity(to_forget_password);
 
     }
-    public boolean SinIn(DatabaseReference reference, DataSnapshot dataSnapshot)
+    public boolean SinInServiceProvider(DatabaseReference reference, DataSnapshot dataSnapshot)
     {
         try {
+
 
             int count=0;
             for (DataSnapshot dsp : dataSnapshot.getChildren())
@@ -264,6 +272,41 @@ public class LoginActivity extends Activity
                     //TODO: Get personal info
                     splash.tempData.setServiceProviderName(dsp.child("PersonalInfo").child("Name").getValue().toString());
                     splash.tempData.setCustomerName(dsp.child("PersonalInfo").child("Name").getValue().toString());
+                    splash.tempData.setServiceProviderLocation(dsp.child("PersonalInfo").child("MyLocation").getValue().toString());
+                    splash.tempData.setNodeNo(""+count);
+                    return true;
+                }
+                count++;
+            }
+
+            return  false;
+        }
+        catch (Exception ex)
+        {
+            Log.e("We are",ex.toString());
+            return  false;
+        }
+
+    }
+    public boolean SinInCustomer(DatabaseReference reference,DataSnapshot dataSnapshot)
+    {
+
+        try {
+
+            int count=0;
+            for (DataSnapshot dsp : dataSnapshot.getChildren())
+            {
+
+                Log.e("here customer is  ",dsp.child("PersonalInfo").child("UserName").getValue().toString());
+
+                if(username.equals(dsp.child("PersonalInfo").child("UserName").getValue().toString())&&pass.equals(dsp.child("PersonalInfo").child("Password").getValue().toString()))
+                {
+
+                    //TODO: Get personal info
+                    splash.tempData.setServiceProviderName(dsp.child("PersonalInfo").child("Name").getValue().toString());
+                    splash.tempData.setCustomerName(dsp.child("PersonalInfo").child("Name").getValue().toString());
+                    splash.tempData.setCustomerPhone(dsp.child("PersonalInfo").child("Phone").getValue().toString());
+                    // splash.tempData.setServiceProviderLocation(dsp.child("PersonalInfo").child("MyLocation").getValue().toString());
                     splash.tempData.setNodeNo(""+count);
                     return true;
                 }

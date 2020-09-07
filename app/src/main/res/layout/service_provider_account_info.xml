@@ -91,33 +91,42 @@
             android:layout_weight="1"
             android:background="#34495e">
 
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/relativeLayout3"
                 android:layout_width="330dp"
                 android:layout_height="62dp"
-                android:layout_gravity="center"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_weight="1"
                 android:background="#34495e"
                 android:gravity="center"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.492"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-                app:layout_constraintVertical_bias="0.517">
+                app:layout_constraintVertical_bias="0.0">
+
+                <Button
+                    android:id="@+id/updateLocationBtn"
+                    android:layout_width="163dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/new_button"
+                    android:onClick="updateLocation"
+                    android:text="Uppdate location" />
 
                 <Button
                     android:id="@+id/myServicesBtn"
-                    android:layout_width="209dp"
-                    android:layout_height="55dp"
+                    android:layout_width="174dp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/new_button"
+                    android:onClick="myServices"
                     android:text="My Services" />
-            </RelativeLayout>
+            </LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/relativeLayout2"
@@ -136,10 +145,10 @@
                 android:paddingBottom="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.488"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-                app:layout_constraintVertical_bias="0.091">
+                app:layout_constraintVertical_bias="0.045">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -191,12 +200,12 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.097">
+                app:layout_constraintVertical_bias="0.027">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
+                    android:gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
                     <TextView

@@ -1,7 +1,7 @@
 package com.example.barberbookingapp;
 
 public class TempData {
-    String UserName,Password,ServiceProviderName,CustomerName,NoOfServedServices,NodeNo;
+    String UserName,Password,ServiceProviderName,CustomerName,CustomerPhone,NoOfServedServices,NodeNo,ServiceProviderLocation;
     public TempData()
     {
 
@@ -11,6 +11,22 @@ public class TempData {
     {
         this.UserName=UserName;
         this.Password=Password;
+    }
+
+    public String getCustomerPhone() {
+        return CustomerPhone;
+    }
+
+    public void setCustomerPhone(String customerPhone) {
+        CustomerPhone = customerPhone;
+    }
+
+    public String getServiceProviderLocation() {
+        return ServiceProviderLocation;
+    }
+
+    public void setServiceProviderLocation(String serviceProviderLocation) {
+        ServiceProviderLocation = serviceProviderLocation;
     }
 
     public String getNodeNo() {

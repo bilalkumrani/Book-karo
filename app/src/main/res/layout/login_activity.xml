@@ -46,8 +46,9 @@
             android:hint="Username"
             android:inputType="text"
             android:outlineSpotShadowColor="#f1c40f"
-            android:textColorHint="#f1c40f"
-            android:textColor="#f1c40f"/>
+            android:text="zeeshan@mail.com"
+            android:textColor="#f1c40f"
+            android:textColorHint="#f1c40f" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,8 +73,9 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textColorHint="#f1c40f"
-            android:textColor="#f1c40f"/>
+            android:text="123"
+            android:textColor="#f1c40f"
+            android:textColorHint="#f1c40f" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

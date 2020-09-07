@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CustomerDashBorad_MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                android:background="#f1b50f">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/historybtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/shape"
+                            android:clickable="true"
+                            android:onClick="check_History"
+                            android:text="History"
+                            android:textColor="#f1b50f"
+                            android:textSize="12dp" />
+
+                        <Button
+                            android:id="@+id/accountbtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_toLeftOf="@id/historybtn"
+                            android:background="@drawable/shape"
+                            android:clickable="true"
+                            android:onClick="check_About"
+                            android:padding="10dp"
+                            android:text="My Acoount"
+                            android:textColor="#f1b50f"
+                            android:textSize="12dp" />
+
+
+
+                </RelativeLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="#34495c"
+            app:tabMode="fixed"></com.google.android.material.tabs.TabLayout>
+
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#34495c"></androidx.viewpager.widget.ViewPager>
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
