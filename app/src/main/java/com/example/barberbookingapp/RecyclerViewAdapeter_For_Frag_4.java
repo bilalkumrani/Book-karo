@@ -14,16 +14,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewAdapeter extends RecyclerView.Adapter<RecyclerViewAdapeter.MyViewHolder> {
+public class RecyclerViewAdapeter_For_Frag_4 extends RecyclerView.Adapter<RecyclerViewAdapeter_For_Frag_4.MyViewHolder> {
     Context mcontext;
     List<Services> mData;
     Dialog mydialog;
 
-    List<ServiceAvailbleForCustomer> serviceAvailbleForCustomers;
+    List<AcceptedRequesDetails> serviceAvailbleForCustomers;
 
-    public RecyclerViewAdapeter(Context mcontext, List<Services> mData,List<ServiceAvailbleForCustomer>  serviceAvailbleForCustomers) {
+    public RecyclerViewAdapeter_For_Frag_4(Context mcontext, List<Services> mData, ArrayList<AcceptedRequesDetails> serviceAvailbleForCustomers) {
         this.mcontext = mcontext;
         this.mData = mData;
         this.serviceAvailbleForCustomers=serviceAvailbleForCustomers;
@@ -63,11 +64,12 @@ public class RecyclerViewAdapeter extends RecyclerView.Adapter<RecyclerViewAdape
 
             //TODO: we are going to fly
 
-            Intent intent = new Intent(mcontext, pop_up.class);
+            Intent intent = new Intent(mcontext, PaymentRating.class);
             intent.putExtra("Name",mData.get(holder.getAdapterPosition()).getName());
             intent.putExtra("Detail",mData.get(holder.getAdapterPosition()).getDesc());
             intent.putExtra("ServiceProviderLocation",serviceAvailbleForCustomers.get(holder.getAdapterPosition()).getServiceProvciderLocation());
             intent.putExtra("ServiceProviderIndex",serviceAvailbleForCustomers.get(holder.getAdapterPosition()).getServiceProvciderIndex());
+            intent.putExtra("RequestIndex",serviceAvailbleForCustomers.get(holder.getAdapterPosition()).getServiceIndex());
 
             mcontext.startActivity(intent);
 

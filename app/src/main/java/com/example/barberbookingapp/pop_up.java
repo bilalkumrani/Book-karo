@@ -86,6 +86,7 @@ public class pop_up extends Activity
     }
     public void PlaceRequest()
     {
+        //TODO: Placing request
         final LodingDialogue lodingDialogue = new LodingDialogue(this,"Placing your request.. Please wait");
         lodingDialogue.startLoadingDialoge();
         Log.e("We are", "placing ordeer ");
@@ -109,12 +110,14 @@ public class pop_up extends Activity
                  reference.child(String.valueOf(dataSnapshot.getChildrenCount())).child("RequestTimeDate").setValue((currentDate+" on "+currentTime));
                  reference.child(String.valueOf(dataSnapshot.getChildrenCount())).child("ServiceChoosed").setValue((name));
                  reference.child(String.valueOf(dataSnapshot.getChildrenCount())).child("Status").setValue(("New"));
+                 reference.child(String.valueOf(dataSnapshot.getChildrenCount())).child("Payment").setValue(("0"));
 
 
                  bookKAro.setEnabled(false);
                  bookKAro.setText("Request place");
                  lodingDialogue.dismiss();
              }
+
 
              @Override
              public void onCancelled(@NonNull DatabaseError databaseError) {

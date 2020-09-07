@@ -26,7 +26,7 @@ public class Frag_4 extends Fragment {
     View v;
     private RecyclerView myrecyclerview;
     private List<Services> lstServices;
-    ArrayList <ServiceAvailbleForCustomer> serviceAvailbleForCustomers;
+    ArrayList <AcceptedRequesDetails> acceptedRequesDetails;
 
 
     public Frag_4() {
@@ -46,7 +46,7 @@ public class Frag_4 extends Fragment {
         super.onCreate(savedInstanceState);
 
         lstServices = new ArrayList<>();
-        serviceAvailbleForCustomers = new ArrayList<>();
+        acceptedRequesDetails= new ArrayList<>();
 
     }
 
@@ -106,13 +106,13 @@ public class Frag_4 extends Fragment {
                                 if(CN.equals(splash.tempData.getCustomerName()) && Phone.equals(splash.tempData.getCustomerPhone()) && Status.equals("Approved"))
                                 {
                                     lstServices.add(new Services(values.child("ServiceChoosed").getValue().toString(),"Your request sent to : "+finalServiceProvciderName1+" is accepted and got appointment on date:  "+values.child("AppointmentTimeDate").getValue().toString(),R.drawable.complete));
-                                    serviceAvailbleForCustomers.add(new ServiceAvailbleForCustomer(values.child("ServiceChoosed").getValue().toString(), finalServiceProvciderName1, finalServiceProvciderIndex, finalServiceProvciderLocation, finalServiceProvciderAvgRating));
+                                    acceptedRequesDetails.add(new AcceptedRequesDetails(values.child("ServiceChoosed").getValue().toString(),values.child("RequestIndex").getValue().toString(), finalServiceProvciderName1, finalServiceProvciderIndex, finalServiceProvciderLocation, finalServiceProvciderAvgRating));
 
                                 }
 
                             }
 
-                            RecyclerViewAdapeter recyclerAdapter = new RecyclerViewAdapeter(getContext(),lstServices,serviceAvailbleForCustomers);
+                            RecyclerViewAdapeter_For_Frag_4 recyclerAdapter = new RecyclerViewAdapeter_For_Frag_4(getContext(),lstServices,acceptedRequesDetails);
                             myrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
                             myrecyclerview.setAdapter(recyclerAdapter);
 

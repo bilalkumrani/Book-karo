@@ -157,8 +157,16 @@ public class registration_form extends AppCompatActivity {
                       //localStorage.InsertAccount(userName,pass1,"Customer");
 
                       //TODO:Get personal info
-
+                      splash.tempData.setUserName(userName);
+                      splash.tempData.setPassword(pass1);
+                      splash.tempData.setServiceProviderName(name);
+                      splash.tempData.setCustomerName(name);
+                      splash.tempData.setServiceProviderLocation("Sukkur");
                       lodingDialogue.dismiss();
+                      Intent openServiceProviderActivity = new Intent(registration_form.this,CustomerDashBorad_MainActivity.class);
+                      startActivity(openServiceProviderActivity);
+
+
                       //TODO: Open cutomer dash board
                   }
                   else
@@ -317,6 +325,7 @@ public class registration_form extends AppCompatActivity {
                         splash.tempData.setServiceProviderName(name);
                         splash.tempData.setCustomerName(name);
                         splash.tempData.setServiceProviderLocation("Sukkur");
+                        lodingDialogue.dismiss();
                         Intent openServiceProviderActivity = new Intent(registration_form.this,ServiceProviderMainActivity.class);
                         startActivity(openServiceProviderActivity);
 
@@ -395,9 +404,9 @@ public class registration_form extends AppCompatActivity {
                 }
 
                 //TODO: Set node no:
-                splash.tempData.setNodeNo(""+counter);
 
                 counter++;
+                splash.tempData.setNodeNo(""+counter);
 
                 //TODO:Personal data
 
@@ -416,10 +425,12 @@ public class registration_form extends AppCompatActivity {
                 reference.child((""+(counter))).child("Requests").child("0").child("RequestIndex").setValue(("0"));
                 reference.child((""+(counter))).child("Requests").child("0").child("AppointmentTimeDate").setValue(("12/12/2020"));
                 reference.child((""+(counter))).child("Requests").child("0").child("Phone").setValue(("0000000000"));
-                reference.child((""+(counter))).child("Requests").child("0").child("Rating").setValue(("+"));
+                reference.child((""+(counter))).child("Requests").child("0").child("Rating").setValue(("New"));
                 reference.child((""+(counter))).child("Requests").child("0").child("RequestTimeDate").setValue(("12/12/2020"));
                 reference.child((""+(counter))).child("Requests").child("0").child("ServiceChoosed").setValue(("Hair"));
                 reference.child((""+(counter))).child("Requests").child("0").child("Status").setValue(("Default"));
+                reference.child((""+(counter))).child("Requests").child("0").child("Payment").setValue(("0"));
+                reference.child((""+(counter))).child("Requests").child("0").child("CustomerName").setValue(("test"));
 
 
                 //TODO:Service 1

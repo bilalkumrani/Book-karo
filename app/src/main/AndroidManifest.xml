@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.barberbookingapp">
 
     <application
@@ -30,7 +31,9 @@
         <activity android:name=".update_customer_data" />
         <activity android:name=".directions" />
         <activity android:name=".UpdateServiceProviderLocation" />
-        <activity android:name=".MyServicesActivity"></activity>
+
+        <activity android:name=".PaymentRating"></activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
