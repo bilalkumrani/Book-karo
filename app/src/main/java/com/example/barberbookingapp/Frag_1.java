@@ -107,35 +107,32 @@ public class Frag_1 extends Fragment {
 
                                     Log.e("Ser ",service);
 
-
-
-
-                                    if (service=="Hair")
+                                    switch (service)
                                     {
-                                        lstServices.add(new Services(service,"Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.hair));
+                                        case "Hair":
+                                            lstServices.add(new Services(service,"Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.hair));
 
-                                        Log.e("In hair","");
+                                            Log.e("In hair","");
+
+                                            break;
+                                        case "Beard":
+                                            Log.e("In beard","");
+                                            lstServices.add(new Services("Beard","Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.beard));
+
+                                            break;
+                                        case "Facial":
+                                            Log.e("In faical","");
+                                            lstServices.add(new Services("Facial","Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.barber));
+
+                                            break;
+
+                                        default:
+                                            Log.e("In facial" ,"");
+                                            lstServices.add(new Services(service,"Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.serviceee));
+
+                                            break;
+
                                     }
-                                    else if (service.equals("Beard"))
-                                    {
-
-                                        Log.e("In beard","");
-                                        lstServices.add(new Services("Beard","Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.beard));
-                                    }
-                                    else if (service.equals("Facial"))
-                                    {
-
-                                        Log.e("In faical","");
-                                        lstServices.add(new Services("Facial","Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.barber));
-
-                                    }
-                                    else
-                                    {
-
-                                        Log.e("In facial" ,"");
-                                        lstServices.add(new Services(service,"Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.serviceee));
-                                    }
-
                                     RecyclerViewAdapeter recyclerAdapter = new RecyclerViewAdapeter(getContext(),lstServices,serviceAvailbleForCustomers);
                                     myrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
                                     myrecyclerview.setAdapter(recyclerAdapter);

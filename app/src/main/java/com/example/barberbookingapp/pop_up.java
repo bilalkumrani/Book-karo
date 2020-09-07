@@ -26,6 +26,7 @@ public class pop_up extends Activity
     String TAG = "pop_up";
     Button directionbtn;
 
+    Button bookKAro;
 
     String location,ServiceProviderIndex;
 
@@ -38,6 +39,7 @@ public class pop_up extends Activity
         setContentView(R.layout.dailog);
         getIncomingIntent();
 
+        bookKAro = findViewById(R.id.accountbtn);
         directionbtn = (Button)findViewById(R.id.directionbtn);
         directionbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,8 +68,8 @@ public class pop_up extends Activity
         Log.d(TAG, "getIncomingIntent: ");
         if(getIntent().hasExtra("Name")&&getIntent().hasExtra("Detail"))
         {
-             name = getIntent().getStringExtra("Name");
-             detail = getIntent().getStringExtra("Detail");
+            name = getIntent().getStringExtra("Name");
+            detail = getIntent().getStringExtra("Detail");
             location = getIntent().getStringExtra("ServiceProviderLocation");
             ServiceProviderIndex = getIntent().getStringExtra("ServiceProviderIndex");
             Log.d(TAG, "getIncomingIntent: "+name+" "+detail);
@@ -109,6 +111,8 @@ public class pop_up extends Activity
                  reference.child(String.valueOf(dataSnapshot.getChildrenCount())).child("Status").setValue(("New"));
 
 
+                 bookKAro.setEnabled(false);
+                 bookKAro.setText("Request place");
                  lodingDialogue.dismiss();
              }
 
