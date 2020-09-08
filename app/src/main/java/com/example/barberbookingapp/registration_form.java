@@ -158,9 +158,11 @@ public class registration_form extends AppCompatActivity {
 
                       //TODO:Get personal info
                       splash.tempData.setUserName(userName);
+                      splash.tempData.setCustomerUserName(userName);
                       splash.tempData.setPassword(pass1);
                       splash.tempData.setServiceProviderName(name);
                       splash.tempData.setCustomerName(name);
+                      splash.tempData.setCustomerPhone(phone);
                       splash.tempData.setServiceProviderLocation("Sukkur");
                       lodingDialogue.dismiss();
                       Intent openServiceProviderActivity = new Intent(registration_form.this,CustomerDashBorad_MainActivity.class);
@@ -362,8 +364,9 @@ public class registration_form extends AppCompatActivity {
                     counter = Integer.parseInt(dsp.child("Index").getValue().toString());
                 }
                 splash.tempData.setNodeNo(""+counter);
-
+                splash.tempData.setCustomerName(name);
                 counter++;
+
                 reference.child((""+(counter))).child("PersonalInfo").child("Name").setValue(name);
                 reference.child((""+(counter))).child("PersonalInfo").child("UserName").setValue(userName);
                 reference.child((""+(counter))).child("PersonalInfo").child("Phone").setValue(phone);

@@ -273,6 +273,7 @@ public class LoginActivity extends Activity
                     splash.tempData.setServiceProviderName(dsp.child("PersonalInfo").child("Name").getValue().toString());
                     splash.tempData.setCustomerName(dsp.child("PersonalInfo").child("Name").getValue().toString());
                     splash.tempData.setServiceProviderLocation(dsp.child("PersonalInfo").child("MyLocation").getValue().toString());
+                    splash.tempData.setPassword(dsp.child("PersonalInfo").child("Password").getValue().toString());
                     splash.tempData.setNodeNo(""+count);
                     return true;
                 }
@@ -305,7 +306,11 @@ public class LoginActivity extends Activity
                     //TODO: Get personal info
                     splash.tempData.setServiceProviderName(dsp.child("PersonalInfo").child("Name").getValue().toString());
                     splash.tempData.setCustomerName(dsp.child("PersonalInfo").child("Name").getValue().toString());
+                    splash.tempData.setCustomerUserName(dsp.child("PersonalInfo").child("UserName").getValue().toString());
                     splash.tempData.setCustomerPhone(dsp.child("PersonalInfo").child("Phone").getValue().toString());
+                    splash.tempData.setPassword(dsp.child("PersonalInfo").child("Password").getValue().toString());
+
+
                     // splash.tempData.setServiceProviderLocation(dsp.child("PersonalInfo").child("MyLocation").getValue().toString());
                     splash.tempData.setNodeNo(""+count);
                     return true;
