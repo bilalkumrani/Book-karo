@@ -85,7 +85,6 @@
             android:ems="11"
             android:hint="Phone"
             android:inputType="phone"
-            android:text="03053206339"
             android:textColor="#f1c40f" />
     </com.google.android.material.textfield.TextInputLayout>
 

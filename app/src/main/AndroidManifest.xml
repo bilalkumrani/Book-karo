@@ -33,6 +33,7 @@
         <activity android:name=".UpdateServiceProviderLocation" />
 
         <activity android:name=".PaymentRating"></activity>
+        <activity android:name=".VerifyNumberWhileCreatingAccount"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

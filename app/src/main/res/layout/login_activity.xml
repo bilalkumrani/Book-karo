@@ -46,7 +46,6 @@
             android:hint="Username"
             android:inputType="text"
             android:outlineSpotShadowColor="#f1c40f"
-            android:text="zeeshan@mail.com"
             android:textColor="#f1c40f"
             android:textColorHint="#f1c40f" />
 
@@ -73,7 +72,6 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"
-            android:text="123"
             android:textColor="#f1c40f"
             android:textColorHint="#f1c40f" />
 
