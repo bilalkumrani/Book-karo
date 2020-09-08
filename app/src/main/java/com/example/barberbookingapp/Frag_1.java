@@ -75,7 +75,7 @@ public class Frag_1 extends Fragment {
 
                 DatabaseReference services;
 
-                String ServiceProvciderName,ServiceProvciderIndex,ServiceProvciderLocation,ServiceProvciderAvgRating;
+                String Likes,Dislikes,ServiceProvciderName,ServiceProvciderIndex,ServiceProvciderLocation,ServiceProvciderAvgRating;
 
                 for (DataSnapshot snapshot: dataSnapshot.getChildren())
                 {
@@ -83,13 +83,16 @@ public class Frag_1 extends Fragment {
                     ServiceProvciderIndex = snapshot.child("Index").getValue().toString();
                     ServiceProvciderLocation = snapshot.child("PersonalInfo").child("MyLocation").getValue().toString();
                     ServiceProvciderAvgRating = snapshot.child("PersonalInfo").child("AvgRating").getValue().toString();
-
+                    Likes = snapshot.child("PersonalInfo").child("Likes").getValue().toString();
+                    Dislikes = snapshot.child("PersonalInfo").child("Dislikes").getValue().toString();
                     services = snapshot.child("Services").getRef();
 
                     final String finalServiceProvciderName1 = ServiceProvciderName;
                     final String finalServiceProvciderIndex = ServiceProvciderIndex;
                     final String finalServiceProvciderLocation = ServiceProvciderLocation;
                     final String finalServiceProvciderAvgRating = ServiceProvciderAvgRating;
+                    final String finalLikes = Likes;
+                    final String finalDislikes = Dislikes;
                     services.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -110,25 +113,25 @@ public class Frag_1 extends Fragment {
                                     switch (service)
                                     {
                                         case "Hair":
-                                            lstServices.add(new Services(service,"Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.hair));
+                                            lstServices.add(new Services(service,"Service provided by "+finalServiceProvciderName1+", Number of people satisfied with him :( "+ finalLikes +" ) and not satisfied :( "+ finalDislikes +" )",R.drawable.hair));
 
                                             Log.e("In hair","");
 
                                             break;
                                         case "Beard":
                                             Log.e("In beard","");
-                                            lstServices.add(new Services("Beard","Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.beard));
+                                            lstServices.add(new Services("Beard","Service provided by "+finalServiceProvciderName1+", Number of people satisfied with him :( "+ finalLikes +" ) and not satisfied :( "+ finalDislikes+" )",R.drawable.beard));
 
                                             break;
                                         case "Facial":
                                             Log.e("In faical","");
-                                            lstServices.add(new Services("Facial","Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.barber));
+                                            lstServices.add(new Services("Facial","Service provided by "+finalServiceProvciderName1+", Number of people satisfied with him :( "+ finalLikes +" ) and not satisfied :( "+ finalDislikes+" )",R.drawable.barber));
 
                                             break;
 
                                         default:
                                             Log.e("In facial" ,"");
-                                            lstServices.add(new Services(service,"Service provided by "+finalServiceProvciderName1+", He has rating :( "+finalServiceProvciderAvgRating+" ) ",R.drawable.serviceee));
+                                            lstServices.add(new Services(service,"Service provided by "+finalServiceProvciderName1+", Number of people satisfied with him :( "+ finalLikes+" ) and not satisfied :( "+ finalDislikes +" )",R.drawable.serviceee));
 
                                             break;
 

@@ -26,6 +26,7 @@ public class ApproveCustomerRequest extends AppCompatActivity {
 
     TextInputEditText Name,Request,Phone,RequestDate;
     ArrayList<NewRequestDataHolder>  customerData;
+    int RequestIndexInList;
     Button confirm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,8 @@ public class ApproveCustomerRequest extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.approve_request_portal);
 
-
+        RequestIndexInList = getIntent().getIntExtra("RequestIndexInList", 0);;
+        Log.e("RequestIndex is", String.valueOf(RequestIndexInList));
        customerData = NewRequests_Main_ServiceProvider.newRequetsBtnDetails;
 
        Name = findViewById(R.id.Name);
@@ -41,10 +43,10 @@ public class ApproveCustomerRequest extends AppCompatActivity {
        Request = findViewById(R.id.Request);
        RequestDate = findViewById(R.id.RequestDate);
        confirm = findViewById(R.id.confirmRequest);
-       Name.setText("Name : "+customerData.get(0).getCustomerName());
-       Phone.setText("Mobile : "+customerData.get(0).getPhone());
-       Request.setText("Requested for: "+customerData.get(0).getServiceChoosed());
-       RequestDate.setText("Requested on : "+customerData.get(0).getRequestTimeDate());
+       Name.setText("Name : "+customerData.get(RequestIndexInList).getCustomerName());
+       Phone.setText("Mobile : "+customerData.get(RequestIndexInList).getPhone());
+       Request.setText("Requested for: "+customerData.get(RequestIndexInList).getServiceChoosed());
+       RequestDate.setText("Requested on : "+customerData.get(RequestIndexInList).getRequestTimeDate());
 
        Name.setEnabled(false);
        Phone.setEnabled(false);
@@ -60,12 +62,12 @@ public class ApproveCustomerRequest extends AppCompatActivity {
             final FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
             final DatabaseReference reference;
             Log.e("Node",splash.tempData.getNodeNo());
-            reference = rootNode.getReference("ServiceProvider").child(splash.tempData.getNodeNo()).child("Requests").child(customerData.get(0).getRequestIndex());
+            reference = rootNode.getReference("ServiceProvider").child(splash.tempData.getNodeNo()).child("Requests").child(customerData.get(RequestIndexInList).getRequestIndex());
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                    Log.e("here",customerData.get(0).getRequestIndex());
+                    Log.e("here",customerData.get(RequestIndexInList).getRequestIndex());
 
                     Date c = Calendar.getInstance().getTime();
                     System.out.println("Current time => " + c);

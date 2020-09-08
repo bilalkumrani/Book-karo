@@ -138,7 +138,7 @@ public class NewRequests_Main_ServiceProvider extends Fragment {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 convertView = layoutInflater.inflate(resources, null);
             }
@@ -153,6 +153,7 @@ public class NewRequests_Main_ServiceProvider extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Intent openApprovalPortal = new Intent(getActivity(),ApproveCustomerRequest.class);
+                    openApprovalPortal.putExtra("RequestIndexInList",position);
                     startActivity(openApprovalPortal);
                 }
             });

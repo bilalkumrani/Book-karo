@@ -122,9 +122,10 @@ public class LoginActivity extends Activity
                        splash.tempData.setUserName(username);
                        splash.tempData.setPassword(pass);
 
-                       lodingDialogue.dismiss();
                        Intent openServiceProviderActivity = new Intent(LoginActivity.this,ServiceProviderMainActivity.class);
                        startActivity(openServiceProviderActivity);
+                        lodingDialogue.dismiss();
+                        finish();
 
                     }
                     else
@@ -210,9 +211,8 @@ public class LoginActivity extends Activity
                         lodingDialogue.dismiss();
                         Intent openServiceProviderActivity = new Intent(LoginActivity.this,CustomerDashBorad_MainActivity.class);
                         startActivity(openServiceProviderActivity);
-
-
                         lodingDialogue.dismiss();
+                        finish();
                     }
                     else
                     {

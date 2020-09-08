@@ -165,7 +165,7 @@ public class registration_form extends AppCompatActivity {
                       lodingDialogue.dismiss();
                       Intent openServiceProviderActivity = new Intent(registration_form.this,CustomerDashBorad_MainActivity.class);
                       startActivity(openServiceProviderActivity);
-
+                      finish();
 
                       //TODO: Open cutomer dash board
                   }
@@ -328,7 +328,7 @@ public class registration_form extends AppCompatActivity {
                         lodingDialogue.dismiss();
                         Intent openServiceProviderActivity = new Intent(registration_form.this,ServiceProviderMainActivity.class);
                         startActivity(openServiceProviderActivity);
-
+                        finish();
                     }
                     else
                     {
@@ -419,6 +419,8 @@ public class registration_form extends AppCompatActivity {
                 reference.child((""+(counter))).child("PersonalInfo").child("Password").setValue(pass1);
                 reference.child((""+(counter))).child("PersonalInfo").child("MyLocation").setValue("Sukkur");
                 reference.child((""+(counter))).child("PersonalInfo").child("AvgRating").setValue("New");
+                reference.child((""+(counter))).child("PersonalInfo").child("Likes").setValue("0");
+                reference.child((""+(counter))).child("PersonalInfo").child("Dislikes").setValue("0");
 
                 //TODO: Default requests
 

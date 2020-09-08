@@ -89,7 +89,7 @@ public class PaymentRating extends Activity {
             @Override
             public void onClick(View v) {
                 flag=1;
-                Rating("+");
+                like();
                 Toast.makeText(getApplicationContext(),"Thank you for rating",Toast.LENGTH_LONG).show();
 
             }
@@ -98,7 +98,7 @@ public class PaymentRating extends Activity {
             @Override
             public void onClick(View v) {
                 flag=-1;
-                Rating("-");
+                Dislike();
                 Toast.makeText(getApplicationContext(),"Thank you for rating",Toast.LENGTH_LONG).show();
 
             }
@@ -173,23 +173,96 @@ public class PaymentRating extends Activity {
 
 
     }
-    public void Rating(final String value)
+    public void like()
     {
-        final LodingDialogue lodingDialogue = new LodingDialogue(this,"Placing your request.. Please wait");
+        final LodingDialogue lodingDialogue = new LodingDialogue(this,"Submitting your response.. Please wait");
         lodingDialogue.startLoadingDialoge();
         Log.e("We are", "payment methods");
         final FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
         final DatabaseReference reference;
         Log.e("Node",splash.tempData.getNodeNo());
-        reference = rootNode.getReference("ServiceProvider").child(ServiceProviderIndex).child("Requests");
+        reference = rootNode.getReference("ServiceProvider").child(ServiceProviderIndex);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.e("Request index", String.valueOf(dataSnapshot.getChildrenCount()));
 
-                reference.child(RequestIndex).child("Rating").setValue((value));
+                final int[] likes = {0};
+                final int[] dislikes = {0};
+                final DatabaseReference personalInfoRoot = dataSnapshot.getRef().child("PersonalInfo");
+                personalInfoRoot.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Log.e("Likes",dataSnapshot.child("Likes").getValue().toString());
+                        Log.e("DisLikes",dataSnapshot.child("Dislikes").getValue().toString());
+                        likes[0] = Integer.parseInt(dataSnapshot.child("Likes").getValue().toString());
+                        dislikes[0] = Integer.parseInt(dataSnapshot.child("Dislikes").getValue().toString());
 
-               lodingDialogue.dismiss();
+                        personalInfoRoot.child("Likes").setValue((likes[0])+1);
+
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                reference.child(RequestIndex).child("Rating").setValue(("+"));
+
+                lodingDialogue.dismiss();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+    }
+    public void Dislike()
+    {
+        final LodingDialogue lodingDialogue = new LodingDialogue(this,"Submitting your response.. Please wait");
+        lodingDialogue.startLoadingDialoge();
+        Log.e("We are", "payment methods");
+        final FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+        final DatabaseReference reference;
+        Log.e("Node",splash.tempData.getNodeNo());
+        reference = rootNode.getReference("ServiceProvider").child(ServiceProviderIndex);
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                final int[] likes = {0};
+                final int[] dislikes = {0};
+               final DatabaseReference personalInfoRoot = dataSnapshot.getRef().child("PersonalInfo");
+               personalInfoRoot.addListenerForSingleValueEvent(new ValueEventListener() {
+                   @Override
+                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                       Log.e("Likes",dataSnapshot.child("Likes").getValue().toString());
+                       Log.e("DisLikes",dataSnapshot.child("Dislikes").getValue().toString());
+                       likes[0] = Integer.parseInt(dataSnapshot.child("Likes").getValue().toString());
+                       dislikes[0] = Integer.parseInt(dataSnapshot.child("Dislikes").getValue().toString());
+
+                       personalInfoRoot.child("Dislikes").setValue((dislikes[0])+1);
+
+
+
+                   }
+
+                   @Override
+                   public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                   }
+               });
+
+                reference.child(RequestIndex).child("Rating").setValue(("-"));
+
+                lodingDialogue.dismiss();
             }
 
             @Override

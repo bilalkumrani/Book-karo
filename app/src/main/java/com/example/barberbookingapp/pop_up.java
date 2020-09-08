@@ -114,7 +114,7 @@ public class pop_up extends Activity
 
 
                  bookKAro.setEnabled(false);
-                 bookKAro.setText("Request place");
+                 bookKAro.setText("Request placed");
                  lodingDialogue.dismiss();
              }
 
