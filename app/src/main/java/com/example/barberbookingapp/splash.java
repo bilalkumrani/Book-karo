@@ -9,12 +9,13 @@ import android.view.WindowManager;
 
 public class splash extends AppCompatActivity {
 
+    public static TempData tempData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-
+        tempData = new TempData();
         Thread td = new Thread(){
 
             public void run()
@@ -26,7 +27,7 @@ public class splash extends AppCompatActivity {
                     ae.printStackTrace();
                 } finally {
 
-                    Intent it = new Intent(splash.this, MainActivity.class);
+                    Intent it = new Intent(splash.this, LoginActivity.class);
                     startActivity(it);
                 }
 

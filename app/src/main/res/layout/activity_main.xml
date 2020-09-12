@@ -5,144 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background="#34495e">
+    tools:context=".CustomerDashBorad_MainActivity">
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/logo"
-        android:layout_gravity="left"
-        android:layout_marginLeft="10dp"/>
-
-
-    <TextView
-        android:id="@+id/welcomText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:fontFamily="@font/bungee"
-        android:text="Hello there, Welcome Back"
-        android:textColor="#f1b50f"
-        android:textSize="30dp"
-        app:fontFamily="@font/bungee" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginHorizontal="20dp"
-        android:textColorHint="#f1c40f"
-        android:layout_marginTop="20dp"
-        app:boxStrokeColor="#f1c40f">
-
-        <com.google.android.material.textfield.TextInputEditText
-
-            android:id="@+id/username_login"
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/actionbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
-            android:inputType="text"
-            android:outlineSpotShadowColor="#f1c40f"
-            android:textColorHint="#f1c40f"
-            android:textColor="#f1c40f"/>
+                android:background="#f1b50f">
 
-    </com.google.android.material.textfield.TextInputLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/historybtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/shape"
+                            android:clickable="true"
+                            android:onClick="check_History"
+                            android:text="History"
+                            android:textColor="#f1b50f"
+                            android:textSize="12dp" />
+
+                        <Button
+                            android:id="@+id/accountbtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_toLeftOf="@id/historybtn"
+                            android:background="@drawable/shape"
+                            android:clickable="true"
+                            android:onClick="check_About"
+                            android:padding="10dp"
+                            android:text="My Acoount"
+                            android:textColor="#f1b50f"
+                            android:textSize="12dp" />
 
 
 
+                </RelativeLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
 
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginHorizontal="20dp"
-        android:textColorHint="#f1c40f"
-        android:layout_marginTop="20dp"
-        app:boxStrokeColor="#f1c40f">
-
-        <com.google.android.material.textfield.TextInputEditText
-
-            android:id="@+id/password_login"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:textColorHint="#f1c40f"
-            android:textColor="#f1c40f"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
+            app:tabGravity="fill"
+            app:tabIndicatorColor="#34495c"
+            app:tabMode="fixed"></com.google.android.material.tabs.TabLayout>
 
 
 
-
-
-
-
-
-
-    <RadioGroup
-        android:id="@+id/r_btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="20dp">
-        <RadioButton android:id="@+id/Service_Radio"
-            android:layout_width="wrap_content"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager_id"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Service Provider"
-            android:textColor="#f1c40f"
-            android:shadowColor="#f1c40f "
-            tools:ignore="OnClick" />
-        <RadioButton android:id="@+id/Customer_Radio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Customer"
-            android:textColor="#f1c40f"
-            tools:ignore="OnClick" />
-    </RadioGroup>
+            android:background="#34495c"></androidx.viewpager.widget.ViewPager>
 
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/new_button"
-        android:onClick="login"
-        android:text="Login"
-        android:textColor="#34495e"
-        android:layout_marginHorizontal="20dp"
-/>
-
-    <Button
-        android:id="@+id/forget_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/new_button"
-        android:onClick="forget_pass"
-        android:text="Forget Password?"
-        android:textColor="#34495e"
-        android:layout_marginHorizontal="20dp"/>
 
 
-    <Button
-        android:id="@+id/signUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/new_button"
-        android:onClick="sign_up"
-        android:text="New User? SIGNUP"
-        android:textColor="#34495e"
-        android:layout_marginHorizontal="20dp"/>
+
+
+
 
 
 

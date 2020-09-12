@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#34495e"
+    android:orientation="vertical"
+    tools:context=".directions">
+
+    <EditText
+        android:id="@+id/yourlocation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+
+        android:gravity="center_vertical"
+        android:hint="Your Location"
+        android:textColor="#FFE500"
+        android:textColorHighlight="#FFE500"
+        android:textColorHint="#FFEB3B" />
+
+
+    <Button
+        android:id="@+id/btn_direction"
+        android:layout_width="193dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/open_btn_design"
+        android:text="Update"
+        android:textColor="#000000" />
+
+
+</LinearLayout>

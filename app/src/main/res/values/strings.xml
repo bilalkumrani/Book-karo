@@ -3,4 +3,13 @@
     <string name="invalid_name">Please Enter Valid Name</string>
     <string name="invalid">Invalid</string>
     <string name="invalid_pass">please Enter Valid Password</string>
+
+    <string name="tab_text_1">New Requests</string>
+    <string name="tab_text_3">Appointments</string>
+    <string name="tab_text_2">Serviced</string>
+    <string name="tab_text_4">Pizza</string>
+    <string name="tab_text_5">burger</string>
+    <string name="tab_text_6">Frizz</string>
+    <string name="title_activity_admin_">Admin_Activity</string>
+
 </resources>

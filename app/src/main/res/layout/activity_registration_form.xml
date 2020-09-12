@@ -52,7 +52,7 @@
         android:textColorHint="#f1c40f"
         app:boxStrokeColor="#f1c40f">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username_service"
+            android:id="@+id/Name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="UserName"
@@ -72,17 +72,18 @@
         android:layout_marginHorizontal="20dp"
         android:textColorHint="#f1c40f"
         app:boxStrokeColor="#f1c40f">
+
         <com.google.android.material.textfield.TextInputEditText
 
-            android:id="@+id/phone_service"
+            android:id="@+id/Request"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="11"
-            android:inputType="phone"
             android:layout_gravity="center"
-            android:hint="Phone"
             android:layout_marginTop="15dp"
-            android:textColor="#f1c40f"/>
+            android:ems="11"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:textColor="#f1c40f" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -96,7 +97,7 @@
         app:boxStrokeColor="#f1c40f">
         <com.google.android.material.textfield.TextInputEditText
 
-            android:id="@+id/password_service"
+            android:id="@+id/mobile"
             android:hint="Password"
             android:inputType="textPassword"
             android:layout_width="match_parent"
@@ -121,7 +122,7 @@
         <com.google.android.material.textfield.TextInputEditText
 
 
-            android:id="@+id/confirm_password_service"
+            android:id="@+id/RequestDate"
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:layout_width="match_parent"
@@ -139,7 +140,7 @@
 
 
     <Button
-        android:id="@+id/register_button__customer"
+        android:id="@+id/confirmRequest"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
