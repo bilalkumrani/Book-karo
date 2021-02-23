@@ -1,65 +1,34 @@
 {
   "project_info": {
-<<<<<<< HEAD
-    "project_number": "198645093118",
-    "firebase_url": "https://barber-booking-app-dd3a2.firebaseio.com",
-    "project_id": "barber-booking-app-dd3a2",
-    "storage_bucket": "barber-booking-app-dd3a2.appspot.com"
-=======
-    "project_number": "634228048407",
-    "firebase_url": "https://book-karo-768ab.firebaseio.com",
-    "project_id": "book-karo-768ab",
-    "storage_bucket": "book-karo-768ab.appspot.com"
->>>>>>> Finalizing-1st-version
+    "project_number": "841112470885",
+    "firebase_url": "https://barber-booking-app-38264.firebaseio.com",
+    "project_id": "barber-booking-app-38264",
+    "storage_bucket": "barber-booking-app-38264.appspot.com"
   },
   "client": [
     {
       "client_info": {
-<<<<<<< HEAD
-        "mobilesdk_app_id": "1:198645093118:android:91a5a219b4212b00678baf",
-=======
-        "mobilesdk_app_id": "1:634228048407:android:e135ebfe0d3a4a4f149252",
->>>>>>> Finalizing-1st-version
+        "mobilesdk_app_id": "1:841112470885:android:3a516a23a51f30e9600d8c",
         "android_client_info": {
           "package_name": "com.example.barberbookingapp"
         }
       },
       "oauth_client": [
         {
-<<<<<<< HEAD
-          "client_id": "198645093118-9bitdam4jb24d9bbnrhredv1rsbkrvhg.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.barberbookingapp",
-            "certificate_hash": "d0caf7100669768089582f9443fd1881cd36fd02"
-          }
-        },
-        {
-          "client_id": "198645093118-ekabpo3mo3ril4mo9be4enseumg3q1k4.apps.googleusercontent.com",
-=======
-          "client_id": "634228048407-9rfbs45nl87dr9afoqaln53avfqc5jc1.apps.googleusercontent.com",
->>>>>>> Finalizing-1st-version
+          "client_id": "841112470885-q2daaeouo297e2f45iunliqcb8316qbc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-<<<<<<< HEAD
-          "current_key": "AIzaSyAUIti4UbbGqQvRjAA2AridjM16k7hrcHE"
-=======
-          "current_key": "AIzaSyBQY4oM-TXnPo49vO5w7pXCPPPA9h3NNSI"
->>>>>>> Finalizing-1st-version
+          "current_key": "AIzaSyBMDzL0Hz_TFtMOaJ5xGOt3YCkGUUxitYU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-<<<<<<< HEAD
-              "client_id": "198645093118-ekabpo3mo3ril4mo9be4enseumg3q1k4.apps.googleusercontent.com",
-=======
-              "client_id": "634228048407-9rfbs45nl87dr9afoqaln53avfqc5jc1.apps.googleusercontent.com",
->>>>>>> Finalizing-1st-version
+              "client_id": "841112470885-q2daaeouo297e2f45iunliqcb8316qbc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

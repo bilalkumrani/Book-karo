@@ -47,7 +47,7 @@
             android:inputType="textPersonName"
             android:textColor="#FFE500"
             android:textColorHighlight="#FFE500"
-            android:textColorHint="#FFEB3B" />
+            android:textColorHint="#FFf" />
 
         <Button
             android:id="@+id/createServiceBtn"

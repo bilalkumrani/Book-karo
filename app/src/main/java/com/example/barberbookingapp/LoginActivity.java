@@ -107,6 +107,7 @@ public class LoginActivity extends Activity
             lodingDialogue.startLoadingDialoge();
 
             Log.e("We are"," sining in service provider account");
+
             final FirebaseDatabase rootNode= FirebaseDatabase.getInstance();
             final DatabaseReference reference;
             reference = rootNode.getReference("ServiceProvider");
